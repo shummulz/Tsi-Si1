@@ -51,8 +51,8 @@ Before you begin, ensure you have the following installed:
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/shummulz/tsi-property-management.git
-cd tsi-property-management
+git clone https://github.com/shummulz/Tsi-Si1.git
+cd Tsi-Si1
 ```
 
 2. **Install dependencies**
