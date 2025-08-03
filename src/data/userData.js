@@ -72,9 +72,9 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Paid",
-		lastPayment: "July 26, 2025", // Late payment for June maintenance fee (due July 5)
-		paymentForMonth: "June 2025", // Which month this payment covers
-		dueDate: "August 5, 2025", // Next payment due date
+		lastPayment: "August 3, 2025", // Late payment for June maintenance fee (due July 5)
+		paymentForMonth: "July 2025", // Which month this payment covers
+		dueDate: "October 5, 2025", // Next payment due date
 		accessCard: "Active",
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 0, // Reset due to late payment
