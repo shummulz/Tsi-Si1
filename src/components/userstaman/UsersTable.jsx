@@ -1,11 +1,19 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Search, AlertTriangle, Clock, Ban, Trophy } from "lucide-react";
+import { Search, AlertTriangle, Clock, Ban, Trophy, ChevronDown, ChevronUp } from "lucide-react";
 import { userData, getPaymentStatus, getAccessCardStatusWithReason } from "../../data/userData";
 
 const UsersTable = () => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [filteredUsers, setFilteredUsers] = useState(userData);
+	const [viewMode, setViewMode] = useState("cards"); // "cards" or "table"
+	const [expandedCard, setExpandedCard] = useState(null);
+
+const UsersTable = () => {
+	const [searchTerm, setSearchTerm] = useState("");
+	const [filteredUsers, setFilteredUsers] = useState(userData);
+	const [viewMode, setViewMode] = useState("cards"); // "cards" or "table"
+	const [expandedCard, setExpandedCard] = useState(null);
 
 	const handleSearch = (e) => {
 		const term = e.target.value.toLowerCase();
@@ -57,13 +65,40 @@ const UsersTable = () => {
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ delay: 0.2 }}
 		>
-			<div className='flex justify-between items-center mb-6'>
-				<h2 className='text-xl font-semibold text-gray-100'>Residents & Maintenance Fees</h2>
-				<div className='relative'>
+			<div className='flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4'>
+				<div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+					<h2 className='text-xl font-semibold text-gray-100'>Residents & Maintenance Fees</h2>
+					
+					{/* View Mode Toggle */}
+					<div className="flex bg-gray-700 rounded-lg p-1">
+						<button
+							onClick={() => setViewMode("cards")}
+							className={`px-3 py-1 rounded text-sm transition-all ${
+								viewMode === "cards" 
+									? "bg-blue-600 text-white" 
+									: "text-gray-300 hover:text-white"
+							}`}
+						>
+							Cards
+						</button>
+						<button
+							onClick={() => setViewMode("table")}
+							className={`px-3 py-1 rounded text-sm transition-all ${
+								viewMode === "table" 
+									? "bg-blue-600 text-white" 
+									: "text-gray-300 hover:text-white"
+							}`}
+						>
+							Table
+						</button>
+					</div>
+				</div>
+				
+				<div className='relative w-full sm:w-auto'>
 					<input
 						type='text'
 						placeholder='Search residents, units, payment status...'
-						className='bg-gray-700 text-white placeholder-gray-400 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500'
+						className='bg-gray-700 text-white placeholder-gray-400 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-80'
 						value={searchTerm}
 						onChange={handleSearch}
 					/>
@@ -71,8 +106,107 @@ const UsersTable = () => {
 				</div>
 			</div>
 
-			<div className='overflow-x-auto'>
-				<table className='min-w-full divide-y divide-gray-700'>
+			{/* CARD VIEW - Mobile Friendly */}
+			{viewMode === "cards" && (
+				<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+					{filteredUsers.map((user, index) => {
+						const paymentAlert = getPaymentAlert(user);
+						const autoStatus = getAccessCardStatusWithReason(user);
+						const leaderboard = getLeaderboardIndicator(user);
+						const isExpanded = expandedCard === user.id;
+
+						return (
+							<motion.div
+								key={user.id}
+								className="bg-gray-900/50 rounded-lg p-4 border border-gray-700 hover:border-gray-600 transition-all"
+								initial={{ opacity: 0, y: 20 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ delay: index * 0.05 }}
+							>
+								{/* Card Header */}
+								<div className="flex justify-between items-start mb-3">
+									<div>
+										<div className="flex items-center gap-2">
+											<h3 className="font-semibold text-gray-100">{user.name}</h3>
+											{leaderboard.icon && (
+												<leaderboard.icon className={`w-4 h-4 ${leaderboard.color}`} />
+											)}
+										</div>
+										<p className="text-sm text-gray-400">Unit {user.unit}</p>
+									</div>
+									<button
+										onClick={() => setExpandedCard(isExpanded ? null : user.id)}
+										className="text-gray-400 hover:text-gray-200 transition-colors"
+									>
+										{isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+									</button>
+								</div>
+
+								{/* Payment Status Badge */}
+								<div className="flex items-center gap-2 mb-3">
+									<span className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${
+										paymentAlert.level === "critical" ? "bg-red-100 text-red-800" :
+										paymentAlert.level === "warning" ? "bg-orange-100 text-orange-800" :
+										paymentAlert.level === "notice" ? "bg-yellow-100 text-yellow-800" :
+										"bg-green-100 text-green-800"
+									}`}>
+										{paymentAlert.icon && <paymentAlert.icon size={12} />}
+										{paymentAlert.message}
+									</span>
+								</div>
+
+								{/* Quick Info */}
+								<div className="space-y-2 text-sm">
+									<div className="flex justify-between">
+										<span className="text-gray-400">Monthly Fee:</span>
+										<span className="text-gray-200">RM{user.maintenanceFee}</span>
+									</div>
+									<div className="flex justify-between">
+										<span className="text-gray-400">Access Card:</span>
+										<span className={`${
+											autoStatus.status === "Active" ? "text-green-400" : "text-red-400"
+										}`}>
+											{autoStatus.status}
+										</span>
+									</div>
+								</div>
+
+								{/* Expanded Details */}
+								{isExpanded && (
+									<motion.div
+										initial={{ opacity: 0, height: 0 }}
+										animate={{ opacity: 1, height: "auto" }}
+										exit={{ opacity: 0, height: 0 }}
+										className="mt-4 pt-4 border-t border-gray-700 space-y-2 text-sm"
+									>
+										<div className="flex justify-between">
+											<span className="text-gray-400">Email:</span>
+											<span className="text-gray-200">{user.email}</span>
+										</div>
+										<div className="flex justify-between">
+											<span className="text-gray-400">Last Payment:</span>
+											<span className="text-gray-200">{user.lastPayment}</span>
+										</div>
+										<div className="flex justify-between">
+											<span className="text-gray-400">Due Date:</span>
+											<span className="text-gray-200">{user.dueDate}</span>
+										</div>
+										<div className="flex justify-between">
+											<span className="text-gray-400">Payment For:</span>
+											<span className="text-gray-200">{user.paymentForMonth}</span>
+										</div>
+									</motion.div>
+								)}
+							</motion.div>
+						);
+					})}
+				</div>
+			)}
+
+			{/* TABLE VIEW - Desktop */}
+			{viewMode === "table" && (
+				<div className='overflow-x-auto'>
+					<table className='min-w-full divide-y divide-gray-700'>
 					<thead>
 						<tr>
 							<th className='px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider'>
@@ -238,9 +372,9 @@ const UsersTable = () => {
 					</tbody>
 				</table>
 			</div>
-			
-
+			)}
 		</motion.div>
 	);
 };
+
 export default UsersTable;

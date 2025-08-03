@@ -41,14 +41,14 @@ const MaintenanceFeeVisualization = () => {
 	
 	return (
 		<motion.div
-			className="bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700"
+			className="bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-4 sm:p-6 border border-gray-700"
 			initial={{ opacity: 0, y: 20 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ delay: 0.4 }}
 		>
 			<div className="mb-6">
 				<h2 className="text-xl font-semibold text-gray-100 mb-2">Maintenance Fee Analytics</h2>
-				<div className="flex items-center space-x-6 text-sm">
+				<div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm">
 					<div className="flex items-center space-x-2">
 						<div className="w-3 h-3 bg-green-500 rounded-full"></div>
 						<span className="text-gray-300">Collection Rate: {collectionRate}%</span>
@@ -60,7 +60,7 @@ const MaintenanceFeeVisualization = () => {
 				</div>
 			</div>
 			
-			<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+			<div className="grid grid-cols-1 xl:grid-cols-2 gap-6">{/*Changed from lg to xl for better mobile experience*/}
 				{/* Payment Status Pie Chart */}
 				<div className="bg-gray-900/50 rounded-lg p-4">
 					<h3 className="text-lg font-semibold text-gray-100 mb-4">Payment Status Distribution</h3>

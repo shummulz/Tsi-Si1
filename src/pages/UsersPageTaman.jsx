@@ -1,12 +1,10 @@
-import { UserCheck, UsersIcon, AlertTriangle, CreditCard } from "lucide-react";
+import { UserCheck, UsersIcon, AlertTriangle, CreditCard, BarChart3, Users, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 import Header from "../components/common/Header";
 import StatCard from "../components/common/StatCard";
-import UsersTableTaman from "../components/userstaman/UsersTable";
-import UserGrowthChartTaman from "../components/userstaman/UserGrowthChart";
-import UserActivityHeatmapTaman from "../components/userstaman/UserActivityHeatmap";
-import UserDemographicsChartTaman from "../components/userstaman/UserDemographicsChart";
+import UsersTableSimplified from "../components/userstaman/UsersTableSimplified";
 import PaymentAlertVisualization from "../components/userstaman/PaymentAlertVisualization";
 import MaintenanceFeeVisualization from "../components/userstaman/MaintenanceFeeVisualization";
 import AccessCardStatus from "../components/userstaman/AccessCardStatus";
@@ -15,6 +13,8 @@ import { getStatistics, updateAllAccessCardStatus } from "../data/userData";
 
 const UsersPage = () => {
 	const userStats = getStatistics();
+	const [activeTab, setActiveTab] = useState("residents");
+	const [showAdvancedAnalytics, setShowAdvancedAnalytics] = useState(false);
 
 	// Handler for manual access card status update
 	const handleUpdateAccessCards = () => {
@@ -56,49 +56,128 @@ const UsersPage = () => {
 				</motion.div>
 
 				{/* ACCESS CARD UPDATE CONTROL */}
+				{/* TAB NAVIGATION */}
 				<motion.div
-					className='mb-6 flex justify-end'
+					className='mb-6'
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 1, delay: 0.2 }}
 				>
-					<button
-						onClick={handleUpdateAccessCards}
-						className='bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 flex items-center space-x-2'
-					>
-						<CreditCard size={16} />
-						<span>Update Access Cards</span>
-					</button>
+					<div className='flex flex-wrap gap-4 mb-4'>
+						<button
+							onClick={() => setActiveTab("residents")}
+							className={`px-6 py-3 rounded-lg font-medium transition-all ${
+								activeTab === "residents"
+									? "bg-blue-600 text-white shadow-lg"
+									: "bg-gray-800 text-gray-300 hover:bg-gray-700"
+							}`}
+						>
+							<Users className="inline w-5 h-5 mr-2" />
+							Residents
+						</button>
+						<button
+							onClick={() => setActiveTab("analytics")}
+							className={`px-6 py-3 rounded-lg font-medium transition-all ${
+								activeTab === "analytics"
+									? "bg-blue-600 text-white shadow-lg"
+									: "bg-gray-800 text-gray-300 hover:bg-gray-700"
+							}`}
+						>
+							<BarChart3 className="inline w-5 h-5 mr-2" />
+							Analytics
+						</button>
+						<button
+							onClick={() => setActiveTab("payments")}
+							className={`px-6 py-3 rounded-lg font-medium transition-all ${
+								activeTab === "payments"
+									? "bg-blue-600 text-white shadow-lg"
+									: "bg-gray-800 text-gray-300 hover:bg-gray-700"
+							}`}
+						>
+							<Calendar className="inline w-5 h-5 mr-2" />
+							LeaderBoard & Card Status
+						</button>
+					</div>
 				</motion.div>
 
-				{/* PAYMENT LEADERBOARD */}
-				<div className='mb-8'>
-					<PaymentLeaderboard />
-				</div>
+				{/* CONTENT BASED ON ACTIVE TAB */}
+				{activeTab === "residents" && (
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.5 }}
+					>
+						{/* MANUAL UPDATE BUTTON */}
+						<motion.div
+							className='mb-6 flex justify-end'
+							initial={{ opacity: 0, y: 20 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ duration: 1, delay: 0.3 }}
+						>
+							<button
+								onClick={handleUpdateAccessCards}
+								className='bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-105 flex items-center space-x-2'
+							>
+								<CreditCard className='w-5 h-5' />
+								<span>Update Access Cards</span>
+							</button>
+						</motion.div>
 
-				<UsersTableTaman />
+						{/* RESIDENTS TABLE */}
+						<UsersTableSimplified />
+					</motion.div>
+				)}
 
-				{/* PAYMENT ALERT VISUALIZATION */}
-				<div className='mt-8'>
-					<PaymentAlertVisualization />
-				</div>
+				{activeTab === "analytics" && (
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.5 }}
+						className="space-y-8"
+					>
+						{/* SIMPLIFIED ANALYTICS VIEW */}
+						<div className='mb-6'>
+							<div className='flex justify-between items-center mb-4'>
+								<h3 className='text-xl font-semibold text-gray-100'>Analytics Overview</h3>
+								<button
+									onClick={() => setShowAdvancedAnalytics(!showAdvancedAnalytics)}
+									className='bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-all'
+								>
+									{showAdvancedAnalytics ? 'Simple View' : 'Advanced View'}
+								</button>
+							</div>
+						</div>
 
-				{/* MAINTENANCE FEE ANALYTICS */}
-				<div className='mt-8'>
-					<MaintenanceFeeVisualization />
-				</div>
+						{/* PAYMENT ALERT VISUALIZATION */}
+						<PaymentAlertVisualization />
 
-				{/* ACCESS CARD STATUS TRACKING */}
-				<div className='mt-8'>
-					<AccessCardStatus />
-				</div>
+						{/* CONDITIONAL ADVANCED ANALYTICS */}
+						{showAdvancedAnalytics && (
+							<>
+								{/* MAINTENANCE FEE ANALYTICS */}
+								<MaintenanceFeeVisualization />
+								
+								{/* ACCESS CARD STATUS TRACKING */}
+								<AccessCardStatus />
+							</>
+						)}
+					</motion.div>
+				)}
 
-				{/* USER CHARTS */}
-				{/* <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8'>
-					<UserGrowthChartTaman />
-					<UserActivityHeatmapTaman />
-					<UserDemographicsChartTaman />
-				</div> */}
+				{activeTab === "payments" && (
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.5 }}
+						className="space-y-8"
+					>
+						{/* PAYMENT LEADERBOARD */}
+						<PaymentLeaderboard />
+						
+						{/* ACCESS CARD STATUS */}
+						<AccessCardStatus />
+					</motion.div>
+				)}
 			</main>
 		</div>
 	);
