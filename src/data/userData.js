@@ -12,9 +12,9 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Pending",
-		lastPayment: "February 5, 2025", // Current month payment
-		paymentForMonth: "December 2024", // Which month this payment covers
-		dueDate: "February 1, 2025", // Next payment due date
+		lastPayment: "May 5, 2025", // Current month payment
+		paymentForMonth: "May 2025", // Which month this payment covers
+		dueDate: "July 1, 2025", // Next payment due date
 		accessCard: "Blocked",
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 0,
@@ -194,7 +194,7 @@ export const userData = [
 		paymentStatus: "Paid",
 		lastPayment: "July 10, 2025", // 1 month overdue - notice
 		paymentForMonth: "July 2025", // Which month this payment covers
-		dueDate: "August 5, 2025", // Current month payment is overdue
+		dueDate: "Semptember 5, 2025", // Current month payment is overdue
 		accessCard: "Active",
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 7,
@@ -233,6 +233,7 @@ export const userData = [
 		maintenanceFee: 100,
 		paymentStatus: "Pending",
 		lastPayment: "May 2025", // 2 months overdue - final warning
+		paymentForMonth: "June 2025", 
 		dueDate: "June 5, 2025", // Was due in June, now overdue
 		accessCard: "Active",
 		// Leaderboard tracking data
@@ -291,8 +292,9 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Pending",
-		lastPayment: "May 2025", // 2 months overdue - final warning
-		dueDate: "June 5, 2025", // Was due in June, now overdue
+		lastPayment: "July 5 2025", // 2 months overdue - final warning
+		paymentForMonth: "July 2025", 
+		dueDate: "August 5, 2025", // Was due in June, now overdue
 		accessCard: "Active",
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 0,
@@ -311,7 +313,8 @@ export const userData = [
 		maintenanceFee: 100,
 		paymentStatus: "Pending",
 		lastPayment: "May 2025", // 2 months overdue - final warning
-		dueDate: "June 5, 2025", // Was due in June, now overdue
+		paymentForMonth: "June 2025", 
+		dueDate: "August 5, 2025", // Was due in June, now overdue
 		accessCard: "Active",
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 0,
@@ -330,7 +333,8 @@ export const userData = [
 		maintenanceFee: 100,
 		paymentStatus: "Pending",
 		lastPayment: "May 2025", // 2 months overdue - final warning
-		dueDate: "June 5, 2025", // Was due in June, now overdue
+		paymentForMonth: "May 2025", 
+		dueDate: "July 5, 2025", // Was due in June, now overdue
 		accessCard: "Active",
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 0,
@@ -388,8 +392,9 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Pending",
-		lastPayment: "May 2025", // 2 months overdue - final warning
-		dueDate: "June 5, 2025", // Was due in June, now overdue
+		lastPayment: "January 5, 2024", // 2 months overdue - final warning
+		paymentForMonth: "January 2024", 
+		dueDate: "March 5, 2024", // Was due in June, now overdue
 		accessCard: "Active",
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 0,
@@ -428,7 +433,8 @@ export const userData = [
 		maintenanceFee: 100,
 		paymentStatus: "Pending",
 		lastPayment: "May 2025", // 2 months overdue - final warning
-		dueDate: "June 5, 2025", // Was due in June, now overdue
+		paymentForMonth: "May 2025", 
+		dueDate: "July 5, 2025", // Was due in June, now overdue
 		accessCard: "Active",
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 0,
@@ -447,7 +453,8 @@ export const userData = [
 		maintenanceFee: 100,
 		paymentStatus: "Pending",
 		lastPayment: "May 2025", // 2 months overdue - final warning
-		dueDate: "June 5, 2025", // Was due in June, now overdue
+		paymentForMonth: "May 2025", 
+		dueDate: "July 5, 2025", // Was due in June, now overdue
 		accessCard: "Active",
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 0,
@@ -466,7 +473,8 @@ export const userData = [
 		maintenanceFee: 100,
 		paymentStatus: "Pending",
 		lastPayment: "May 2025", // 2 months overdue - final warning
-		dueDate: "June 5, 2025", // Was due in June, now overdue
+		paymentForMonth: "May 2025", 
+		dueDate: "July 5, 2025", // Was due in June, now overdue
 		accessCard: "Active",
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 0,
