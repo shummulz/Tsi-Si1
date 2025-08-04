@@ -332,7 +332,7 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Pending",
-		lastPayment: "May 2025", // 2 months overdue - final warning
+		lastPayment: "May 28, 2025", // 2 months overdue - final warning
 		paymentForMonth: "May 2025", 
 		dueDate: "July 5, 2025", // Was due in June, now overdue
 		accessCard: "Active",
