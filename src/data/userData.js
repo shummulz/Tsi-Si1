@@ -172,10 +172,10 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Pending",
-		lastPayment: "April 25, 2025", // 6 months overdue - access blocked
-		paymentForMonth: "April 2025", // Which month this payment covers
-		dueDate: "June 5, 2025",
-		accessCard: "Blocked",
+		lastPayment: "August 4, 2025", // 6 months overdue - access blocked
+		paymentForMonth: "May 2025", // Which month this payment covers
+		dueDate: "July 5, 2025",
+		accessCard: "Active",
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 0,
 		earlyPayments: 0,
@@ -432,7 +432,7 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Pending",
-		lastPayment: "May 2025", // 2 months overdue - final warning
+		lastPayment: "May 25, 2025", // 2 months overdue - final warning
 		paymentForMonth: "May 2025", 
 		dueDate: "July 5, 2025", // Was due in June, now overdue
 		accessCard: "Active",
@@ -452,7 +452,7 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Pending",
-		lastPayment: "May 2025", // 2 months overdue - final warning
+		lastPayment: "May 25, 2025", // 2 months overdue - final warning
 		paymentForMonth: "May 2025", 
 		dueDate: "July 5, 2025", // Was due in June, now overdue
 		accessCard: "Active",
@@ -472,7 +472,7 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Pending",
-		lastPayment: "May 2025", // 2 months overdue - final warning
+		lastPayment: "May 25, 2025", // 2 months overdue - final warning
 		paymentForMonth: "May 2025", 
 		dueDate: "July 5, 2025", // Was due in June, now overdue
 		accessCard: "Active",
