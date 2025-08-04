@@ -152,9 +152,9 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Pending",
-		lastPayment: "October 2024", // Last payment was October 2024 - 9 months overdue!
+		lastPayment: "October 1, 2024", // Last payment was October 2024 - 9 months overdue!
 		paymentForMonth: "October 2024", // Which month this payment covers
-		dueDate: "November 5, 2024", // Was due November 2024, now severely overdue
+		dueDate: "December 5, 2024", // Was due November 2024, now severely overdue
 		accessCard: "Blocked", // Should be blocked - 9 months overdue
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 0, // Reset due to being severely overdue
@@ -173,7 +173,7 @@ export const userData = [
 		maintenanceFee: 100,
 		paymentStatus: "Pending",
 		lastPayment: "April 25, 2025", // 6 months overdue - access blocked
-		paymentForMonth: "April 2024", // Which month this payment covers
+		paymentForMonth: "April 2025", // Which month this payment covers
 		dueDate: "June 5, 2025",
 		accessCard: "Blocked",
 		// Leaderboard tracking data
@@ -272,9 +272,9 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Pending",
-		lastPayment: "June 5,2025", // 2 months overdue - final warning
-		paymentForMonth: "June 2025", // Which month this payment covers
-		dueDate: "August 5, 2025", // Was due in June, now overdue
+		lastPayment: "August 4,2025", // 2 months overdue - final warning
+		paymentForMonth: "August 2025", // Which month this payment covers
+		dueDate: "October 5, 2025", // Was due in June, now overdue
 		accessCard: "Active",
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 6,
@@ -312,9 +312,9 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Pending",
-		lastPayment: "July 19, 2025", // 2 months overdue - final warning
+		lastPayment: "July 19, 2025", 
 		paymentForMonth: "June 2025", 
-		dueDate: "August 5, 2025", // Was due in June, now overdue
+		dueDate: "August 5, 2025",
 		accessCard: "Active",
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 0,
@@ -492,9 +492,9 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Pending",
-		lastPayment: "June 5,2025", // 2 months overdue - final warning
-		paymentForMonth: "June 2025", // Which month this payment covers
-		dueDate: "August 5, 2025", // Was due in June, now overdue
+		lastPayment: "August 4, 2025", // 2 months overdue - final warning
+		paymentForMonth: "August 2025", // Which month this payment covers
+		dueDate: "October 5, 2025", // Was due in June, now overdue
 		accessCard: "Active",
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 6,
