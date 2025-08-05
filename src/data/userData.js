@@ -52,9 +52,9 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Paid",
-		lastPayment: "May 12, 2025", // Current month payment
-		paymentForMonth: "April 2025", // Which month this payment covers
-		dueDate: "June 5, 2025", // Next payment due date
+		lastPayment: "August 5, 2025", // Current month payment
+		paymentForMonth: "June 2025", // Which month this payment covers
+		dueDate: "August 5, 2025", // Next payment due date
 		accessCard: "Active",
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 0,
