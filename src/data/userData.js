@@ -431,10 +431,10 @@ export const userData = [
 		unit: "43", 
 		status: "Active", 
 		maintenanceFee: 100,
-		paymentStatus: "Pending",
-		lastPayment: "May 25, 2025", // 2 months overdue - final warning
-		paymentForMonth: "May 2025", 
-		dueDate: "July 5, 2025", // Was due in June, now overdue
+		paymentStatus: "Paid",
+		lastPayment: "August 8, 2025",
+		paymentForMonth: "July 2025", 
+		dueDate: "September 5, 2025",
 		accessCard: "Active",
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 0,
@@ -451,10 +451,10 @@ export const userData = [
 		unit: "45", 
 		status: "Active", 
 		maintenanceFee: 100,
-		paymentStatus: "Pending",
-		lastPayment: "May 25, 2025", // 2 months overdue - final warning
-		paymentForMonth: "May 2025", 
-		dueDate: "July 5, 2025", // Was due in June, now overdue
+		paymentStatus: "Paid",
+		lastPayment: "August 8, 2025",
+		paymentForMonth: "July 2025", 
+		dueDate: "September 5, 2025",
 		accessCard: "Active",
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 0,
@@ -471,10 +471,10 @@ export const userData = [
 		unit: "47", 
 		status: "Active", 
 		maintenanceFee: 100,
-		paymentStatus: "Pending",
-		lastPayment: "May 25, 2025", // 2 months overdue - final warning
-		paymentForMonth: "May 2025", 
-		dueDate: "July 5, 2025", // Was due in June, now overdue
+		paymentStatus: "Paid",
+		lastPayment: "August 8, 2025",
+		paymentForMonth: "July 2025", 
+		dueDate: "September 5, 2025",
 		accessCard: "Active",
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 0,
