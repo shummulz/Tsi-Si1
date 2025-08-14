@@ -242,7 +242,7 @@ export const userData = [
 		totalPaymentsMade: 12,
 		averageDaysEarly: 200,
 		paymentStreak: 12,
-		badges: []
+		badges: ["Super Early Bird", "Reliability Star", "Consistent"]
 	},
     { 
 		id: 13, 
