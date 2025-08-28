@@ -212,16 +212,16 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Paid",
-		lastPayment: "July 26, 2025",
-		paymentForMonth: "July 2025", // Which month this payment covers
-		dueDate: "September 5, 2025",
+		lastPayment: "August 28, 2025",
+		paymentForMonth: "August 2025", // Which month this payment covers
+		dueDate: "October 5, 2025",
 		accessCard: "Active",
 		// Leaderboard tracking data
-		consecutiveOnTimePayments: 7,
-		earlyPayments: 7,
-		totalPaymentsMade: 7,
+		consecutiveOnTimePayments: 8,
+		earlyPayments: 8,
+		totalPaymentsMade: 8,
 		averageDaysEarly: 2,
-		paymentStreak: 7,
+		paymentStreak: 8,
 		badges: []
 	},
 	{ 
@@ -372,16 +372,16 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Paid",
-		lastPayment: "July 28, 2025",
-		paymentForMonth: "July 2025", // Which month this payment covers
-		dueDate: "September 5, 2025",
+		lastPayment: "August 28, 2025",
+		paymentForMonth: "August 2025", // Which month this payment covers
+		dueDate: "October 5, 2025",
 		accessCard: "Active",
 		// Leaderboard tracking data
-		consecutiveOnTimePayments: 7,
-		earlyPayments: 7,
-		totalPaymentsMade: 7,
+		consecutiveOnTimePayments: 8,
+		earlyPayments: 8,
+		totalPaymentsMade: 8,
 		averageDaysEarly: 0,
-		paymentStreak: 7,
+		paymentStreak: 8,
 		badges: ["Consistent", "Reliability Star", "Early Bird"]
 	},
 	{ 
