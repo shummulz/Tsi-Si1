@@ -3,11 +3,7 @@ import { motion } from "framer-motion";
 import { Search, AlertTriangle, Clock, Ban, Trophy, ChevronDown, ChevronUp } from "lucide-react";
 import { userData, getPaymentStatus, getAccessCardStatusWithReason } from "../../data/userData";
 
-const UsersTable = () => {
-	const [searchTerm, setSearchTerm] = useState("");
-	const [filteredUsers, setFilteredUsers] = useState(userData);
-	const [viewMode, setViewMode] = useState("cards"); // "cards" or "table"
-	const [expandedCard, setExpandedCard] = useState(null);
+// ...existing code...
 
 const UsersTable = () => {
 	const [searchTerm, setSearchTerm] = useState("");
