@@ -112,16 +112,16 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Paid",
-		lastPayment: "July 28, 2025", // Current month payment
-		paymentForMonth: "August 2025", // Which month this payment covers
-		dueDate: "October 5, 2025", // Next payment due date
+		lastPayment: "September 9, 2025", // Current month payment
+		paymentForMonth: "September 2025", // Which month this payment covers
+		dueDate: "November 5, 2025", // Next payment due date
 		accessCard: "Active",
 		// Leaderboard tracking data
-		consecutiveOnTimePayments: 8,
-		earlyPayments: 8,
-		totalPaymentsMade: 8,
-		averageDaysEarly: 3,
-		paymentStreak: 8,
+		consecutiveOnTimePayments: 9,
+		earlyPayments: 9,
+		totalPaymentsMade: 9,
+		averageDaysEarly: 1,
+		paymentStreak: 9,
 		badges: ["MVP", "Reliability Star", "Consistent"]
 	},
 	{ 
@@ -151,17 +151,17 @@ export const userData = [
 		unit: "15", 
 		status: "Active", 
 		maintenanceFee: 100,
-		paymentStatus: "Pending",
-		lastPayment: "October 1, 2024", // Last payment was October 2024 - 9 months overdue!
-		paymentForMonth: "October 2024", // Which month this payment covers
-		dueDate: "December 5, 2024", // Was due November 2024, now severely overdue
-		accessCard: "Blocked", // Should be blocked - 9 months overdue
+		paymentStatus: "Paid",
+		lastPayment: "September 5, 2025", // Last payment was October 2024 - 9 months overdue!
+		paymentForMonth: "March 2025", // Which month this payment covers
+		dueDate: "May 5, 2025", // Was due November 2024, now severely overdue
+		accessCard: "Active", // Should be blocked - 9 months overdue
 		// Leaderboard tracking data
-		consecutiveOnTimePayments: 0, // Reset due to being severely overdue
+		consecutiveOnTimePayments: 3, // Reset due to being severely overdue
 		earlyPayments: 3,
-		totalPaymentsMade: 4, // Reduced since missing many months
+		totalPaymentsMade: 3, // Reduced since missing many months
 		averageDaysEarly: 0, // Reset due to overdue status
-		paymentStreak: 0, // Reset due to being overdue
+		paymentStreak: 3, // Reset due to being overdue
 		badges: [] // Remove all badges due to overdue status
 	},
 	{ 
@@ -252,16 +252,16 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Paid",
-		lastPayment: "July 6, 2025",
-		paymentForMonth: "July 2025", // Which month this payment covers
-		dueDate: "September 5, 2025",
+		lastPayment: "August 5, 2025",
+		paymentForMonth: "August 2025", // Which month this payment covers
+		dueDate: "October 5, 2025",
 		accessCard: "Active",
 		// Leaderboard tracking data
-		consecutiveOnTimePayments: 7,
-		earlyPayments: 7,
-		totalPaymentsMade: 7,
+		consecutiveOnTimePayments: 8,
+		earlyPayments: 8,
+		totalPaymentsMade: 8,
 		averageDaysEarly: 2,
-		paymentStreak: 7,
+		paymentStreak: 8,
 		badges: []
 	},
 	{ 
