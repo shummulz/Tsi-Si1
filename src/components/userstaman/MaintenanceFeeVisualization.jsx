@@ -19,8 +19,8 @@ const MaintenanceFeeVisualization = () => {
 		
 		// Calculate overdue months distribution
 		const overdueDistribution = userData.map(user => {
-			const lastPaymentDate = new Date(user.paymentForMonth);
-			const monthsDiff = Math.floor((currentDate - lastPaymentDate) / (1000 * 60 * 60 * 24 * 30));
+			const paymentForMonth = new Date(user.paymentForMonth);
+			const monthsDiff = Math.floor((currentDate - paymentForMonth) / (1000 * 60 * 60 * 24 * 30));
 			return { ...user, monthsOverdue: Math.max(monthsDiff, 0) };
 		}).filter(user => user.monthsOverdue > 0);
 		
