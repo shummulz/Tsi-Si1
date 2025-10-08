@@ -52,16 +52,16 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Paid",
-		lastPayment: "August 31, 2025", // Current month payment
-		paymentForMonth: "August 2025", // Which month this payment covers
-		dueDate: "October 5, 2025", // Next payment due date
+		lastPayment: "October 5, 2025", // Current month payment
+		paymentForMonth: "September 2025", // Which month this payment covers
+		dueDate: "November 5, 2025", // Next payment due date
 		accessCard: "Active",
 		// Leaderboard tracking data
-		consecutiveOnTimePayments: 8,
+		consecutiveOnTimePayments: 9,
 		earlyPayments: 0,
-		totalPaymentsMade: 8,
+		totalPaymentsMade: 9,
 		averageDaysEarly: 0,
-		paymentStreak: 8,
+		paymentStreak: 9,
 		badges: []
 	},
 	{ 
@@ -74,7 +74,7 @@ export const userData = [
 		paymentStatus: "Paid",
 		lastPayment: "August 3, 2025", // Late payment for June maintenance fee (due July 5)
 		paymentForMonth: "July 2025", // Which month this payment covers
-		dueDate: "October 5, 2025", // Next payment due date
+		dueDate: "September 5, 2025", // Next payment due date
 		accessCard: "Active",
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 0, // Reset due to late payment
@@ -112,16 +112,16 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Paid",
-		lastPayment: "September 9, 2025", // Current month payment
-		paymentForMonth: "September 2025", // Which month this payment covers
-		dueDate: "November 5, 2025", // Next payment due date
+		lastPayment: "October 5, 2025", // Current month payment
+		paymentForMonth: "October 2025", // Which month this payment covers
+		dueDate: "December 5, 2025", // Next payment due date
 		accessCard: "Active",
 		// Leaderboard tracking data
-		consecutiveOnTimePayments: 9,
-		earlyPayments: 9,
-		totalPaymentsMade: 9,
+		consecutiveOnTimePayments: 10,
+		earlyPayments: 10,
+		totalPaymentsMade: 10,
 		averageDaysEarly: 1,
-		paymentStreak: 9,
+		paymentStreak: 10,
 		badges: ["MVP", "Reliability Star", "Consistent"]
 	},
 	{ 
@@ -252,16 +252,16 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Paid",
-		lastPayment: "September 10, 2025",
-		paymentForMonth: "September 2025", // Which month this payment covers
-		dueDate: "November 5, 2025",
+		lastPayment: "October 5, 2025",
+		paymentForMonth: "October 2025", // Which month this payment covers
+		dueDate: "December 5, 2025",
 		accessCard: "Active",
 		// Leaderboard tracking data
-		consecutiveOnTimePayments: 9,
-		earlyPayments: 9,
-		totalPaymentsMade: 9,
+		consecutiveOnTimePayments: 10,
+		earlyPayments: 10,
+		totalPaymentsMade: 10,
 		averageDaysEarly: 2,
-		paymentStreak: 9,
+		paymentStreak: 10,
 		badges: []
 	},
 	{ 
@@ -292,16 +292,16 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Paid",
-		lastPayment: "September 8 2025", // 2 months overdue - final warning
-		paymentForMonth: "August 2025", 
-		dueDate: "October 5, 2025", // Was due in June, now overdue
+		lastPayment: "October 7 2025", // 2 months overdue - final warning
+		paymentForMonth: "September 2025", 
+		dueDate: "November 5, 2025", // Was due in June, now overdue
 		accessCard: "Active",
 		// Leaderboard tracking data
-		consecutiveOnTimePayments: 8,
+		consecutiveOnTimePayments: 9,
 		earlyPayments: 0,
-		totalPaymentsMade: 8,
+		totalPaymentsMade: 9,
 		averageDaysEarly: 0,
-		paymentStreak: 8,
+		paymentStreak: 9,
 		badges: []
 	},
 	{ 
@@ -352,17 +352,17 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Paid",
-		lastPayment: "August 31, 2025",
-		paymentForMonth: "September 2025", // Which month this payment covers
-		dueDate: "November 5, 2025",
+		lastPayment: "October 1, 2025",
+		paymentForMonth: "October 2025", // Which month this payment covers
+		dueDate: "December 5, 2025",
 		accessCard: "Active",
 		// Leaderboard tracking data
-		consecutiveOnTimePayments: 9,
-		earlyPayments: 9,
-		totalPaymentsMade: 9,
-		averageDaysEarly: 5,
-		paymentStreak: 9,
-		badges: ["Consistent", "Reliability Star", "Super Early Bird"]
+		consecutiveOnTimePayments: 10,
+		earlyPayments: 10,
+		totalPaymentsMade: 10,
+		averageDaysEarly: 10,
+		paymentStreak: 10,
+		badges: ["Consistent", "Reliability Star", "Super Early Bird", "MVP", "Early Bird"]
 	},
 	{ 
 		id: 19, 
@@ -412,16 +412,16 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Paid",
-		lastPayment: "August 13,2025", // 2 months overdue - final warning
-		paymentForMonth: "August  2025", // Which month this payment covers
-		dueDate: "October 5, 2025", // Was due in June, now overdue
+		lastPayment: "October 7,2025", // 2 months overdue - final warning
+		paymentForMonth: "October  2025", // Which month this payment covers
+		dueDate: "December 5, 2025", // Was due in June, now overdue
 		accessCard: "Active",
 		// Leaderboard tracking data
-		consecutiveOnTimePayments: 8,
-		earlyPayments: 8,
-		totalPaymentsMade: 8,
+		consecutiveOnTimePayments: 10,
+		earlyPayments: 10,
+		totalPaymentsMade: 10,
 		averageDaysEarly: 0,
-		paymentStreak: 8,
+		paymentStreak: 10,
 		badges: []
 	},
 	{ 
@@ -525,7 +525,8 @@ export const getStatistics = () => {
 export const getPaymentStatus = (user) => {
 	const currentDate = getCurrentDate(); // Use centralized current date function
 	const dueDate = new Date(user.dueDate);
-	const lastPaymentDate = new Date(user.lastPayment);
+	//const lastPaymentDate = new Date(user.lastPayment);
+	const lastPaymentDate = new Date(user.paymentForMonth);
 	
 	// If user has paid and last payment is current month, they're up to date
 	const currentMonth = currentDate.getMonth();
