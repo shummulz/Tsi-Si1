@@ -3,6 +3,43 @@
 // Helper function to get current date (can be easily modified for testing or different time zones)
 export const getCurrentDate = () => new Date();
 
+// Robust date parser to handle different date string formats across browsers
+// Accepts: "September 27 2025", "September 27, 2025", "September 2025" and ISO strings
+export const parseDateString = (str) => {
+	if (!str) return null;
+	// If it's already a Date object, return it
+	if (str instanceof Date) return str;
+	// Try ISO first
+	const iso = Date.parse(str);
+	if (!isNaN(iso)) return new Date(iso);
+
+	// Handle formats like "September 27 2025" or "September 27, 2025"
+	const monthDayYear = str.match(/^(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),?\s*(\d{4})$/i);
+	if (monthDayYear) {
+		const month = monthDayYear[1];
+		const day = parseInt(monthDayYear[2], 10);
+		const year = parseInt(monthDayYear[3], 10);
+		const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+		const m = months.findIndex(mn => mn.toLowerCase() === month.toLowerCase());
+		return new Date(year, m, day);
+	}
+
+	// Handle formats like "September 2025"
+	const monthYear = str.match(/^(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})$/i);
+	if (monthYear) {
+		const month = monthYear[1];
+		const year = parseInt(monthYear[2], 10);
+		const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+		const m = months.findIndex(mn => mn.toLowerCase() === month.toLowerCase());
+		return new Date(year, m, 1);
+	}
+
+	// Fallback: try replacing dashes and commas
+	const normalized = str.replace(/-/g, '/').replace(/,/g, '');
+	const parsed = Date.parse(normalized);
+	return isNaN(parsed) ? null : new Date(parsed);
+}
+
 export const userData = [
 	{ 
 		id: 1, 
@@ -12,16 +49,16 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Paid",
-		lastPayment: "August 31, 2025", // Current month payment
-		paymentForMonth: "July 2025", // Which month this payment covers
-		dueDate: "September 5, 2025", // Next payment due date
+		lastPayment: "October 9, 2025", // Current month payment
+		paymentForMonth: "September 2025", // Which month this payment covers
+		dueDate: "November 5, 2025", // Next payment due date
 		accessCard: "Active",
 		// Leaderboard tracking data
 		consecutiveOnTimePayments: 0,
 		earlyPayments: 0,
-		totalPaymentsMade: 7,
+		totalPaymentsMade: 9,
 		averageDaysEarly: 0,
-		paymentStreak: 0,
+		paymentStreak: 9,
 		badges: []
 	},
 	{ 
@@ -526,7 +563,7 @@ export const getPaymentStatus = (user) => {
 	const currentDate = getCurrentDate(); // Use centralized current date function
 	const dueDate = new Date(user.dueDate);
 	//const lastPaymentDate = new Date(user.lastPayment);
-	const paymentForMonth = new Date(user.paymentForMonth);
+	const paymentForMonth = new Date(parseDateString(user.paymentForMonth));
 	
 	// If user has paid and last payment is current month, they're up to date
 	const currentMonth = currentDate.getMonth();
@@ -626,10 +663,10 @@ export const calculateLatePayments = (user) => {
 // Helper function to automatically determine access card status based on payment history
 export const getAutoAccessCardStatus = (user) => {
 	const currentDate = getCurrentDate();
-	const paymentForMonth = new Date(user.paymentForMonth);
-	
+	const paymentForMonth = parseDateString(user.paymentForMonth);
+    
 	// Calculate months overdue based on last payment
-	const monthsOverdue = Math.floor((currentDate - paymentForMonth) / (1000 * 60 * 60 * 24 * 30));
+	const monthsOverdue = paymentForMonth ? Math.floor((currentDate - paymentForMonth) / (1000 * 60 * 60 * 24 * 30)) : 0;
 	
 	// Access card rules:
 	// - Active: Up to date or less than 3 months overdue
@@ -661,8 +698,8 @@ export const getAutoAccessCardStatus = (user) => {
 export const getAccessCardStatusWithReason = (user) => {
 	const status = getAutoAccessCardStatus(user);
 	const currentDate = getCurrentDate();
-	const paymentForMonth = new Date(user.paymentForMonth);
-	const monthsOverdue = Math.floor((currentDate - paymentForMonth) / (1000 * 60 * 60 * 24 * 30));
+	const paymentForMonth = parseDateString(user.paymentForMonth);
+	const monthsOverdue = paymentForMonth ? Math.floor((currentDate - paymentForMonth) / (1000 * 60 * 60 * 24 * 30)) : 0;
 	
 	let reason = "";
 	if (status === "Blocked") {
@@ -815,8 +852,8 @@ export const getMonthlyMaintenanceData = () => {
 		if (isCurrentMonth) {
 			// For current month, use actual data
 			userData.forEach(user => {
-				const paymentForMonth = new Date(user.paymentForMonth);
-				const isCurrentMonthPayment = paymentForMonth.getMonth() === currentDate.getMonth() 
+				const paymentForMonth = parseDateString(user.paymentForMonth);
+				const isCurrentMonthPayment = paymentForMonth && paymentForMonth.getMonth() === currentDate.getMonth() 
 					&& paymentForMonth.getFullYear() === currentDate.getFullYear();
 				
 				if (user.paymentStatus === "Paid" && isCurrentMonthPayment) {

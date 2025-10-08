@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from "recharts";
-import { userData, getCurrentDate, getMonthlyMaintenanceData } from "../../data/userData";
+import { userData, getCurrentDate, getMonthlyMaintenanceData, parseDateString } from "../../data/userData";
 
 const MaintenanceFeeVisualization = () => {
 	// Process data for visualizations
@@ -19,8 +19,8 @@ const MaintenanceFeeVisualization = () => {
 		
 		// Calculate overdue months distribution
 		const overdueDistribution = userData.map(user => {
-			const paymentForMonth = new Date(user.paymentForMonth);
-			const monthsDiff = Math.floor((currentDate - paymentForMonth) / (1000 * 60 * 60 * 24 * 30));
+			const paymentForMonth = parseDateString(user.paymentForMonth);
+			const monthsDiff = paymentForMonth ? Math.floor((currentDate - paymentForMonth) / (1000 * 60 * 60 * 24 * 30)) : 0;
 			return { ...user, monthsOverdue: Math.max(monthsDiff, 0) };
 		}).filter(user => user.monthsOverdue > 0);
 		
