@@ -626,7 +626,7 @@ export const calculateLatePayments = (user) => {
 // Helper function to automatically determine access card status based on payment history
 export const getAutoAccessCardStatus = (user) => {
 	const currentDate = getCurrentDate();
-	const lastPaymentDate = new Date(user.lastPayment);
+	const lastPaymentDate = new Date(user.paymentForMonth);
 	
 	// Calculate months overdue based on last payment
 	const monthsOverdue = Math.floor((currentDate - lastPaymentDate) / (1000 * 60 * 60 * 24 * 30));
@@ -661,7 +661,7 @@ export const getAutoAccessCardStatus = (user) => {
 export const getAccessCardStatusWithReason = (user) => {
 	const status = getAutoAccessCardStatus(user);
 	const currentDate = getCurrentDate();
-	const lastPaymentDate = new Date(user.lastPayment);
+	const lastPaymentDate = new Date(user.paymentForMonth);
 	const monthsOverdue = Math.floor((currentDate - lastPaymentDate) / (1000 * 60 * 60 * 24 * 30));
 	
 	let reason = "";
@@ -815,7 +815,7 @@ export const getMonthlyMaintenanceData = () => {
 		if (isCurrentMonth) {
 			// For current month, use actual data
 			userData.forEach(user => {
-				const lastPaymentDate = new Date(user.lastPayment);
+				const lastPaymentDate = new Date(user.paymentForMonth);
 				const isCurrentMonthPayment = lastPaymentDate.getMonth() === currentDate.getMonth() 
 					&& lastPaymentDate.getFullYear() === currentDate.getFullYear();
 				
