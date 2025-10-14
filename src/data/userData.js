@@ -89,16 +89,16 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Paid",
-		lastPayment: "October 5, 2025", // Current month payment
-		paymentForMonth: "September 2025", // Which month this payment covers
-		dueDate: "November 5, 2025", // Next payment due date
+		lastPayment: "October 8, 2025", // Current month payment
+		paymentForMonth: "October 2025", // Which month this payment covers
+		dueDate: "December 5, 2025", // Next payment due date
 		accessCard: "Active",
 		// Leaderboard tracking data
-		consecutiveOnTimePayments: 9,
+		consecutiveOnTimePayments: 10,
 		earlyPayments: 0,
-		totalPaymentsMade: 9,
+		totalPaymentsMade: 10,
 		averageDaysEarly: 0,
-		paymentStreak: 9,
+		paymentStreak: 10,
 		badges: []
 	},
 	{ 
@@ -109,16 +109,16 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Paid",
-		lastPayment: "August 3, 2025", // Late payment for June maintenance fee (due July 5)
-		paymentForMonth: "July 2025", // Which month this payment covers
-		dueDate: "September 5, 2025", // Next payment due date
+		lastPayment: "October 14, 2025", // Late payment for June maintenance fee (due July 5)
+		paymentForMonth: "October 2025", // Which month this payment covers
+		dueDate: "December 5, 2025", // Next payment due date
 		accessCard: "Active",
 		// Leaderboard tracking data
-		consecutiveOnTimePayments: 0, // Reset due to late payment
+		consecutiveOnTimePayments: 10, // Reset due to late payment
 		earlyPayments: 5, // Previous early payments before this late one
-		totalPaymentsMade: 6,
+		totalPaymentsMade: 10,
 		averageDaysEarly: 0, // Reset since streak is broken
-		paymentStreak: 0, // Reset due to late payment
+		paymentStreak: 10, // Reset due to late payment
 		badges: [] // Remove badges due to broken streak
 	},
 	{ 
@@ -229,16 +229,16 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Paid",
-		lastPayment: "September 2, 2025", // 1 month overdue - notice
-		paymentForMonth: "September 2025", // Which month this payment covers
-		dueDate: "November 5, 2025", // Current month payment is overdue
+		lastPayment: "October 9, 2025", // 1 month overdue - notice
+		paymentForMonth: "October 2025", // Which month this payment covers
+		dueDate: "December 5, 2025", // Current month payment is overdue
 		accessCard: "Active",
 		// Leaderboard tracking data
-		consecutiveOnTimePayments: 9,
-		earlyPayments: 9,
-		totalPaymentsMade: 9,
+		consecutiveOnTimePayments: 10,
+		earlyPayments: 10,
+		totalPaymentsMade: 10,
 		averageDaysEarly: 2,
-		paymentStreak: 9,
+		paymentStreak: 10,
 		badges: ["Reliability Star", "Consistent", "Early Bird"]
 	},
 	{ 
