@@ -69,16 +69,16 @@ export const userData = [
 		status: "Active", 
 		maintenanceFee: 100,
 		paymentStatus: "Paid",
-		lastPayment: "September 27 2025", // Current month payment
-		paymentForMonth: "September 2025", // Which month this payment covers
-		dueDate: "November 5, 2025", // Next payment due date
+		lastPayment: "October 30 2025", // Current month payment
+		paymentForMonth: "October 2025", // Which month this payment covers
+		dueDate: "December 5, 2025", // Next payment due date
 		accessCard: "Active",
 		// Leaderboard tracking data
-		consecutiveOnTimePayments: 9,
+		consecutiveOnTimePayments: 10,
 		earlyPayments: 0,
-		totalPaymentsMade: 9,
+		totalPaymentsMade: 10,
 		averageDaysEarly: 0,
-		paymentStreak: 9,
+		paymentStreak: 10,
 		badges: ["MVP", "Super Early Bird", "Reliability Star", "Consistent"]
 	},
 	{ 
